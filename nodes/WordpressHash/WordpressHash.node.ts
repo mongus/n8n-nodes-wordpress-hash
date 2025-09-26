@@ -16,7 +16,7 @@ export class WordpressHash implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'WordPress Hash',
     name: 'wordpressHash',
-    // icon intentionally omitted to avoid requiring asset copying during build
+    icon: 'file:wordpress.svg',
     group: ['transform'],
     version: 1,
     description: 'Hash and verify passwords using WordPress-compatible hashing',
