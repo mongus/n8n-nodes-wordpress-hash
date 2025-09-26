@@ -1,0 +1,64 @@
+{
+  "name": "n8n-nodes-wordpress-hash",
+  "version": "0.1.0",
+  "description": "An n8n community node exposing the functions of the wordpress-hash-node package",
+  "author": {
+    "name": "Aaron Porter",
+    "email": "aaron@mongus.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "n8n",
+    "n8n-community-node",
+    "wordpress",
+    "hash",
+    "password",
+    "wordpress-hash-node"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mongus/n8n-nodes-wordpress-hash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mongus/n8n-nodes-wordpress-hash/issues"
+  },
+  "homepage": "https://github.com/mongus/n8n-nodes-wordpress-hash#readme",
+  "engines": {
+    "node": ">=20.15"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "npx rimraf dist && tsc && gulp build:icons",
+    "dev": "nodemon --watch nodes --ext js,ts,json --exec \"dotenv -- npm run build && n8n start\"",
+    "format": "prettier nodes --write",
+    "lint": "eslint nodes package.json",
+    "lintfix": "eslint nodes package.json --fix",
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "nodes": [
+      "dist/nodes/WordpressHash/WordpressHash.node.js"
+    ]
+  },
+  "dependencies": {
+    "wordpress-hash-node": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "@typescript-eslint/parser": "~8.32.0",
+    "dotenv-cli": "^10.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.3",
+    "gulp": "^5.0.0",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
